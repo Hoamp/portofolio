@@ -260,35 +260,24 @@
                         <p class="text-md font-medium text-secondary md:text-lg">Beberapa Sertifikasi Yang Pernah Saya Kumpulkan</p>
                     </div>
                 </div>
+                <div class="flex flex-wrap justify-center">
 
-                <div class="flex flex-wrap">
-                    <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
+                    @foreach ($sertifikasi as $s)
+                    <div class="w-full px-4 lg:w-1/2 xl:w-1/3  ">
                         <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800">
-                            <img src="./dist/img/sertif/javascript.png" alt="programming" class="w-full" />
+                            <img src="/storage/sertifikasi/{{ $s->gambar }}" alt="programming" class="w-full" />
                             <div class="py-8 px-6">
-                                <h3 class=""><a href="" class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary dark:text-white">Sertifikasi javascript</a></h3>
-                                <p class="font-md mb-6 text-base text-secondary">Sertifikasi javascript dari solo learn setelah menyelesaikan course</p>
+                                <h3 class=""><a href="" class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary dark:text-white">{{ $s->judul }}</a></h3>
+                                <p class="font-md mb-6 text-base text-secondary">{{ $s->deskripsi }}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-                        <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800">
-                            <img src="./dist/img/sertif/lks_kra.jpeg" alt="programming" class="w-full" />
-                            <div class="py-8 px-6">
-                                <h3 class=""><a href="" class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary dark:text-white">Sertifikasi LKS Kabupaten</a></h3>
-                                <p class="font-md mb-6 text-base text-secondary">Sertifikasi LKS Kabupaten untuk tingkat kabupaten</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-                        <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800">
-                            <img src="./dist/img/sertif/web_dev_funda.png" alt="programming" class="w-full" />
-                            <div class="py-8 px-6">
-                                <h3 class=""><a href="" class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary dark:text-white">Sertifikasi web dev fundamental</a></h3>
-                                <p class="font-md mb-6 text-base text-secondary">Sertifikasi web dev fundamental dari solo learn setelah menyelesaikan course</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+
+                </div>
+                <div class="w-full px-4  flex justify-center">
+                    {{ $sertifikasi->links() }}
+
                 </div>
             </div>
         </section>

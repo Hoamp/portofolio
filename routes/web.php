@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminSertifikasiController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
+Route::get('/', [HomeController::class,'index'])->name('home');
 
 Route::get('/auth/login', [AuthController::class, 'index'])->name('auth.index');
 Route::post('/auth/login', [AuthController::class, 'authent'])->name('auth.login');
@@ -30,4 +29,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/admin/sertifikasi', [AdminSertifikasiController::class, 'index'])->name('admin.sertifikasi.index');
     Route::get('/admin/sertifikasi/create', [AdminSertifikasiController::class, 'create'])->name('admin.sertifikasi.create');
     Route::post('/admin/sertifikasi', [AdminSertifikasiController::class, 'store'])->name('admin.sertifikasi.store');
+    Route::get('/admin/sertifikasi/delete/{id}', [AdminSertifikasiController::class, 'delete'])->name('admin.sertifikasi.delete');
+    Route::get('/admin/sertifikasi/edit/{id}', [AdminSertifikasiController::class, 'edit'])->name('admin.sertifikasi.edit');
+    Route::put('/admin/sertifikasi/update/{id}', [AdminSertifikasiController::class, 'update'])->name('admin.sertifikasi.update');
 });
