@@ -90,6 +90,12 @@
             <div data-i18n="Analytics">Sertifikasi</div>
         </a>
     </li>
+    <li class="menu-item">
+        <a href="{{ route('admin.project.index') }}" class="menu-link  {{ Request::is('admin/project*') ? 'bg-primary text-white rounded' : '' }}">
+            <i class="menu-icon tf-icons bx bx-user"></i>
+            <div data-i18n="Analytics">Project</div>
+        </a>
+    </li>
 
     
     <li class="menu-header small text-uppercase">

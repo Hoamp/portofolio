@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminProjectController;
 use App\Http\Controllers\AdminSertifikasiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
@@ -32,4 +33,12 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/admin/sertifikasi/delete/{id}', [AdminSertifikasiController::class, 'delete'])->name('admin.sertifikasi.delete');
     Route::get('/admin/sertifikasi/edit/{id}', [AdminSertifikasiController::class, 'edit'])->name('admin.sertifikasi.edit');
     Route::put('/admin/sertifikasi/update/{id}', [AdminSertifikasiController::class, 'update'])->name('admin.sertifikasi.update');
+
+    
+    Route::get('/admin/project', [AdminProjectController::class, 'index'])->name('admin.project.index');
+    Route::get('/admin/project/create', [AdminProjectController::class, 'create'])->name('admin.project.create');
+    Route::post('/admin/project', [AdminProjectController::class, 'store'])->name('admin.project.store');
+    Route::get('/admin/project/delete/{id}', [AdminProjectController::class, 'delete'])->name('admin.project.delete');
+    Route::get('/admin/project/edit/{id}', [AdminProjectController::class, 'edit'])->name('admin.project.edit');
+    Route::put('/admin/project/update/{id}', [AdminProjectController::class, 'update'])->name('admin.project.update');
 });
